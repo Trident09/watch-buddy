@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+	html {
+		font-family: "Montserrat", sans-serif;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+}
