@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom';
-import NavBar from './Components/NavBar/NavBar';
-import Footer from './Components/Footer/Footer';
-import Preloader from './Components/PreLoader/Preloader';
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "./Components/Footer/Footer";
+import NavBar from "./Components/NavBar/NavBar";
+import Loader from "./Components/Loader/Loader";
 
 const Layout = () => {
-
-    const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
 		const delay = () => {
 			setTimeout(() => {
 				setIsLoading(false);
-			}, 1500);
+			}, 3500);
 		};
 		delay();
 	}, []);
 	return isLoading ? (
-		<Preloader />
+		<Loader />
 	) : (
 		<body>
 			<NavBar />
-			<main className="pt-20">
+			<main className="pt-[250px]">
 				<Outlet />
 			</main>
 			<Footer />
 		</body>
 	);
+};
 
-}
-
-export default Layout
+export default Layout;
