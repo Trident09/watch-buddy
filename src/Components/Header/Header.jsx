@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
 	return (
 		<header>
-			<div class="logo scale-[20%]">
+			<div className="logo scale-[20%]">
 				<b>
 					Wat<span>ch</span>Bu<span>d</span>dy!
 				</b>

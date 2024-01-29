@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Loader from "./Components/Loader/Loader";
 import Header from "./Components/Header/Header";
+import MainNav from "./Components/MainNav/MainNav";
+import { Container } from "@mui/material";
 
 const Layout = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -16,12 +18,16 @@ const Layout = () => {
 	return isLoading ? (
 		<Loader />
 	) : (
-		<div className="min-h-screen">
-			<Header />
-			<main>
-				<Outlet />
-			</main>
-			{/* <Footer /> */}
+		<div>
+			<div className="min-h-screen">
+				<Header />
+				<main>
+					<Container>
+						<Outlet />
+					</Container>
+				</main>
+			</div>
+			<MainNav />
 		</div>
 	);
 };

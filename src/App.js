@@ -1,7 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
-import HomePage from "./Pages/HomePage";
+import Movies from "./Pages/Movies/Movies";
+import Search from "./Pages/Search/Search";
+import Series from "./Pages/Series/Series";
+import Trending from "./Pages/Trending/Trending";
 
 const App = () => {
 	return (
@@ -12,12 +15,21 @@ const App = () => {
 			>
 				<Route
 					index
-					element={<HomePage />}
+					element={<Trending />}
+					exact
 				/>
-				{/* <Route
-					path="/about"
-					element={<AboutMe />}
-				/> */}
+				<Route
+					path="/movies"
+					element={<Movies />}
+				/>
+				<Route
+					path="/series"
+					element={<Series />}
+				/>
+				<Route
+					path="/search"
+					element={<Search />}
+				/>
 			</Route>
 		</Routes>
 	);
