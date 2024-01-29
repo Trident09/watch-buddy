@@ -10,7 +10,7 @@ const Layout = () => {
 		const delay = () => {
 			setTimeout(() => {
 				setIsLoading(false);
-			}, 3500);
+			}, 3500); // 3500
 		};
 		delay();
 	}, []);
@@ -19,7 +19,7 @@ const Layout = () => {
 	) : (
 		<body>
 			<NavBar />
-			<main className="pt-[250px]">
+			<main className="min-h-screen">
 				<Outlet />
 			</main>
 			<Footer />

@@ -3,10 +3,10 @@ import "../../CSS/NavBar.css";
 
 const NavBar = () => {
 	return (
-		<nav className="fixed bg-black shadow-lg w-full">
-			<div className="logo scale-[30%]">
+		<nav className="bg-black shadow-lg w-full p-0">
+			<div className="logo scale-[30%] w-max">
 				<b>
-					Wa<span>tch</span> Bu<span>dd</span>y
+					Wa<span>tch</span> Bu<span>dd</span>y<span> !</span>
 				</b>
 			</div>
 		</nav>
