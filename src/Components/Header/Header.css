@@ -1,15 +1,23 @@
 @import url(//fonts.googleapis.com/css?family=Vibur);
 
+header {
+	background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center
+		no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding-bottom: 20px;
+}
+
 .logo {
 	text-align: center;
 	width: 100%;
-	height: 250px;
-	margin: auto;
-	position: relative;
+	height: 100px;
+	/* margin: auto; */
+	/* position: absolute; */
 	top: 0;
 	left: 0;
-	/* right: 0; */
-	/* bottom: 0; */
+	right: 0;
+	bottom: 0;
 	user-select: none;
 }
 

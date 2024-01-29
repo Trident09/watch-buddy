@@ -1,11 +1,11 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Layout from './Layout'
-import HomePage from './Pages/HomePage'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import HomePage from "./Pages/HomePage";
 
 const App = () => {
-  return (
-    <Routes>
+	return (
+		<Routes>
 			<Route
 				path="/"
 				element={<Layout />}
@@ -20,7 +20,7 @@ const App = () => {
 				/> */}
 			</Route>
 		</Routes>
-  )
-}
+	);
+};
 
-export default App
+export default App;
