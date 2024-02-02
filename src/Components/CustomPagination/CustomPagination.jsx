@@ -20,7 +20,7 @@ const CustomPagination = ({ setPage, numOfPages = 10 }) => {
 					hideNextButton
 					hidePrevButton
 					count={numOfPages}
-					variant="outlined"
+					// variant="outlined"
 					color="primary"
 					onChange={(e) => handlePageChange(e.target.textContent)}
 				/>
