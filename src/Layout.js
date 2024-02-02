@@ -21,7 +21,7 @@ const Layout = () => {
 		<div>
 			<div className="min-h-screen">
 				<Header />
-				<main>
+				<main className="pt-[10vh]">
 					<Container>
 						<Outlet />
 					</Container>

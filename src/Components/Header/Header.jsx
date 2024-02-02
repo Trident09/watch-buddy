@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
 	return (
 		<header>
-			<div className="logo scale-[20%]">
+			<div className="logo" onClick={() => {window.scroll(0,0)}}>
 				<b>
 					Wat<span>ch</span>Bu<span>d</span>dy!
 				</b>

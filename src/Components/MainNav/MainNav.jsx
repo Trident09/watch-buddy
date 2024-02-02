@@ -20,7 +20,7 @@ export default function LabelBottomNavigation() {
 		if (value === "movies") navigate("/movies");
 		if (value === "series") navigate("/series");
 		if (value === "search") navigate("/search");
-	}, [value]);
+	}, [navigate, value]);
 
 	return (
 		<BottomNavigation
@@ -29,7 +29,7 @@ export default function LabelBottomNavigation() {
 			onChange={handleChange}
 			style={{
 				height: "60px",
-				fontSize: "1.5rem",
+				fontSize: "0.5rem",
 				width: "100%",
 				position: "fixed",
 				bottom: 0,
