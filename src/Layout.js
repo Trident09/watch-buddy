@@ -11,7 +11,7 @@ const Layout = () => {
 		const delay = () => {
 			setTimeout(() => {
 				setIsLoading(false);
-			}, 35); // 3500
+			}, 3543); // 3500
 		};
 		delay();
 	}, []);

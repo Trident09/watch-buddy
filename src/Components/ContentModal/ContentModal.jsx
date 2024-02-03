@@ -60,7 +60,7 @@ export default function ContentModal({ children, media_type, id }) {
 		<div>
 			<div
 				onClick={handleOpen}
-				className="media cursor-pointer"
+				className="flex flex-col w-[200px] p-[5px] my-[5px] mx-0 bg-gray-900 rounded-lg relative font-[montserrat] hover:bg-white hover:text-black cursor-pointer media"
 			>
 				{children}
 			</div>
@@ -82,7 +82,7 @@ export default function ContentModal({ children, media_type, id }) {
 					<Box sx={style}>
 						{content && (
 							<div className="w-full h-[80%] text-white pt-[1rem] pb-[3rem] px-4 border-[1px] border-solid border-[#282c34] bg-[#39445a] rounded-xl shadow-md">
-								<div className="ContentModal">
+								<div className="ContentModal flex h-full w-full overflow-y-scroll">
 									<img
 										src={
 											content.poster_path
@@ -90,7 +90,7 @@ export default function ContentModal({ children, media_type, id }) {
 												: unavailable
 										}
 										alt={content.name || content.title}
-										className="ContentModal__portrait"
+										className="ContentModal__portrait object-contain rounded-[10px]"
 									/>
 									<img
 										src={
@@ -99,10 +99,10 @@ export default function ContentModal({ children, media_type, id }) {
 												: unavailableLandscape
 										}
 										alt={content.name || content.title}
-										className="ContentModal__landscape"
+										className="ContentModal__landscape object-contain rounded-[10px]"
 									/>
-									<div className="ContentModal__about">
-										<span className="ContentModal__title">
+									<div className="ContentModal__about flex flex-col font-[Roboto] justify-evenly font-light">
+										<span className="ContentModal__title h-[12%] flex items-center justify-center">
 											{content.name || content.title} (
 											{(
 												content.first_air_date ||
@@ -112,12 +112,12 @@ export default function ContentModal({ children, media_type, id }) {
 											)
 										</span>
 										{content.tagline && (
-											<i className="tagline">
+											<i className="pb-[10px] items-center">
 												{content.tagline}
 											</i>
 										)}
 
-										<span className="ContentModal__description">
+										<span className="ContentModal__description flex h-2/5 overflow-y-scroll p-[15px] rounded-3xl text-justify">
 											{content.overview}
 										</span>
 

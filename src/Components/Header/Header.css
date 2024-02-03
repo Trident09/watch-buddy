@@ -3,32 +3,10 @@
 header {
 	background: #112 url(//images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) center
 		no-repeat;
-	background-size: cover;
-	margin: 0;
-	position: fixed;
-	height: 10vh;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 1000;
-}
-
-.logo {
-	text-align: center;
-	width: 100%;
-	height: 100px;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	user-select: none;
 }
 
 .logo b {
 	font: 400 7vh "Vibur";
-	color: #fee;
 	text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
 		0 0 0.1em #ff4444, 0 10px 3px #000;
 }

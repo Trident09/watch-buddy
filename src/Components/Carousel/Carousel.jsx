@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { img_300, noPicture } from "../../Config/Config";
-import "./Carousel.css";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -11,14 +10,14 @@ const Gallery = ({ id, media_type }) => {
 	const [credits, setCredits] = useState([]);
 
 	const items = credits.map((c) => (
-		<div className="carouselItem">
+		<div className="flex flex-col object-contain p-[10px]">
 			<img
 				src={
 					c.profile_path ? `${img_300}/${c.profile_path}` : noPicture
 				}
 				alt={c?.name}
 				onDragStart={handleDragStart}
-				className="carouselItem__img"
+				className="rounded-lg shadow-md mb-[5px]"
 			/>
 			<b className="carouselItem__txt text-xs">{c?.name}</b>
 		</div>

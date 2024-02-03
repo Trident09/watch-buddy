@@ -22,13 +22,16 @@ const SingleContent = ({
 				color={vote_average > 6 ? "primary" : "secondary"}
 			></Badge>
 			<img
+				className="rounded-lg"
 				src={poster ? `${img_300}/${poster}` : unavailable}
 				alt={title}
 			/>
-			<b className="title">{title}</b>
-			<span className="subTitle">
+			<b className="w-full text-center text-[17px] py-2 px-0">{title}</b>
+			<span className="flex justify-between px-0 py-0.5 pb-[3px] font-thin text-[0.8rem]">
 				{media_type === "tv" ? "TV" : "Movie"}
-				<span className="subTitle">{date}</span>
+				<span className="flex justify-between px-0 py-0.5 pb-[3px] font-thin text-[0.8rem]">
+					{date}
+				</span>
 			</span>
 		</ContentModal>
 	);
