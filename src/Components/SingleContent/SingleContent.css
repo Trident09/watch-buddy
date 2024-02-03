@@ -36,7 +36,8 @@
 	display: flex;
 	justify-content: space-between;
 	padding-bottom: 3px;
-	padding: 0 2px;	padding-bottom: 3px;
-    font-weight: 100;
-    font-size: 0.8rem;
+	padding: 0 2px;
+	padding-bottom: 3px;
+	font-weight: 100;
+	font-size: 0.8rem;
 }

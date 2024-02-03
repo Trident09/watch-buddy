@@ -9,8 +9,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import SingleContent from "../../Components/SingleContent/SingleContent";
 import CustomPagination from "../../Components/CustomPagination/CustomPagination";
+import SingleContent from "../../Components/SingleContent/SingleContent";
 
 const Search = () => {
 	const [type, setType] = useState(0);

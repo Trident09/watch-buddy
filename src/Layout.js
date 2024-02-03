@@ -1,9 +1,9 @@
+import { Container } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Loader from "./Components/Loader/Loader";
 import Header from "./Components/Header/Header";
+import Loader from "./Components/Loader/Loader";
 import MainNav from "./Components/MainNav/MainNav";
-import { Container } from "@mui/material";
 
 const Layout = () => {
 	const [isLoading, setIsLoading] = useState(true);
