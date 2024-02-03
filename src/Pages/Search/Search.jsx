@@ -48,7 +48,7 @@ const Search = () => {
 		window.scroll(0, 0);
 		fetchSearch();
 		// eslint-disable-next-line
-	}, [type, page]);
+	}, [type, page, searchText]);
 
 	return (
 		<div className="pb-14">
@@ -60,11 +60,6 @@ const Search = () => {
 						label="Search"
 						variant="filled"
 						onChange={(e) => setSearchText(e.target.value)}
-						onKeyDown={(e) => {
-							if (e.key === "Enter") {
-								fetchSearch();
-							}
-						}}
 					/>
 					<Button
 						onClick={fetchSearch}
