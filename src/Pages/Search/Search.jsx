@@ -51,7 +51,7 @@ const Search = () => {
 	}, [type, page]);
 
 	return (
-		<div>
+		<div className="pb-14">
 			<ThemeProvider theme={darkTheme}>
 				<div className="flex my-4 mx-0">
 					<TextField
@@ -60,6 +60,11 @@ const Search = () => {
 						label="Search"
 						variant="filled"
 						onChange={(e) => setSearchText(e.target.value)}
+						onKeyDown={(e) => {
+							if (e.key === "Enter") {
+								fetchSearch();
+							}
+						}}
 					/>
 					<Button
 						onClick={fetchSearch}
@@ -91,7 +96,7 @@ const Search = () => {
 					/>
 				</Tabs>
 			</ThemeProvider>
-			<div className="trending">
+			<div className="trending flex flex-wrap justify-around">
 				{content &&
 					content.map((c) => (
 						<SingleContent
