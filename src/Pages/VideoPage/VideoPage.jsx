@@ -8,11 +8,21 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 const VideoPage = () => {
+	const location = useLocation();
+	const search = location.search;
+	const params = new URLSearchParams(search);
+	const media_type = params.get("m");
+	const id = params.get("i");
+	const title = params.get("t");
 	const [seasonData, setSeasonData] = useState({});
 	const [selectedSeason, setSelectedSeason] = useState(1);
 	const [selectedEpisode, setSelectedEpisode] = useState(1);
 	const [overview, setOverview] = useState("");
 	const [episodesCount, setEpisodesCount] = useState(1);
+	const [videoTV, setVideoTV] = useState(
+		`https://vidsrc.xyz/embed/tv?tmdb=${id}&season=1&episode=1`
+	);
+	const [videoMovie, setVideoMovie] = useState(`https://vidsrc.xyz/embed/movie?tmdb=${id}`);
 
 	const fetchData = async () => {
 		if (media_type === "tv") {
@@ -36,17 +46,20 @@ const VideoPage = () => {
 		}
 	};
 
+	const fetchVideo = async () => {
+		if (media_type === "tv") {
+			setVideoTV(
+				`https://vidsrc.xyz/embed/tv?tmdb=${id}&season=${selectedSeason}&episode=${selectedEpisode}`
+			);
+		} else if (media_type === "movie") {
+			setVideoMovie(`https://vidsrc.xyz/embed/movie?tmdb=${id}`);
+		}
+	};
+
 	useEffect(() => {
 		fetchData();
 		// eslint-disable-next-line
 	}, []);
-
-	const location = useLocation();
-	const search = location.search;
-	const params = new URLSearchParams(search);
-	const media_type = params.get("m");
-	const id = params.get("i");
-	const title = params.get("t");
 
 	if (!media_type || !id) {
 		return <h1>Invalid URL</h1>;
@@ -59,6 +72,16 @@ const VideoPage = () => {
 					<span className="pagetitle uppercase flex justify-center text-[4vw] text-[white] p-1 rounded-[50px]">
 						Movie : {title}
 					</span>
+					<div className="w-full aspect-video pb-12">
+						<iframe
+							src={videoMovie}
+							style={{ width: "100%", aspectRatio: "16/9" }}
+							frameborder="0"
+							referrerpolicy="origin"
+							allowfullscreen
+							title="Embedded Video for Movies"
+						></iframe>
+					</div>
 				</div>
 			</>
 		);
@@ -80,6 +103,7 @@ const VideoPage = () => {
 			console.log(
 				`TMDB Id: ${id}, Season: ${selectedSeason}, Episode: ${selectedEpisode}`
 			);
+			fetchVideo();
 		};
 
 		const seasons = Object.keys(seasonData).map((num) => parseInt(num, 10));
@@ -144,7 +168,17 @@ const VideoPage = () => {
 						Go
 					</Button>
 				</div>
-				<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem]">
+				<div className="w-full aspect-video pb-12">
+					<iframe
+						src={videoTV}
+						style={{ width: "100%", aspectRatio: "16/9" }}
+						frameborder="0"
+						referrerpolicy="origin"
+						allowfullscreen
+						title="Embedded Video for TV Series"
+					></iframe>
+				</div>
+				<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem] mb-12">
 					<p>{overview}</p>
 				</div>
 			</>
