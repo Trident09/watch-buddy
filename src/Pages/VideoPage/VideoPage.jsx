@@ -22,7 +22,9 @@ const VideoPage = () => {
 	const [videoTV, setVideoTV] = useState(
 		`https://vidsrc.xyz/embed/tv?tmdb=${id}&season=1&episode=1`
 	);
-	const [videoMovie, setVideoMovie] = useState(`https://vidsrc.xyz/embed/movie?tmdb=${id}`);
+	const [videoMovie, setVideoMovie] = useState(
+		`https://vidsrc.xyz/embed/movie?tmdb=${id}`
+	);
 
 	const fetchData = async () => {
 		if (media_type === "tv") {
@@ -76,9 +78,9 @@ const VideoPage = () => {
 						<iframe
 							src={videoMovie}
 							style={{ width: "100%", aspectRatio: "16/9" }}
-							frameborder="0"
-							referrerpolicy="origin"
-							allowfullscreen
+							frameBorder="0"
+							referrerPolicy="origin"
+							allowFullScreen
 							title="Embedded Video for Movies"
 						></iframe>
 					</div>
@@ -172,9 +174,9 @@ const VideoPage = () => {
 					<iframe
 						src={videoTV}
 						style={{ width: "100%", aspectRatio: "16/9" }}
-						frameborder="0"
-						referrerpolicy="origin"
-						allowfullscreen
+						frameBorder="0"
+						referrerPolicy="origin"
+						allowFullScreen
 						title="Embedded Video for TV Series"
 					></iframe>
 				</div>
