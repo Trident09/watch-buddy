@@ -5,6 +5,7 @@ import Movies from "./Pages/Movies/Movies";
 import Search from "./Pages/Search/Search";
 import Series from "./Pages/Series/Series";
 import Trending from "./Pages/Trending/Trending";
+import VideoPage from "./Pages/VideoPage/VideoPage";
 
 const App = () => {
 	return (
@@ -29,6 +30,10 @@ const App = () => {
 				<Route
 					path="/search"
 					element={<Search />}
+				/>
+				<Route
+					path="/video"
+					element={<VideoPage />}
 				/>
 			</Route>
 		</Routes>

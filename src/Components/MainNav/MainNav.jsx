@@ -4,7 +4,7 @@ import TvIcon from "@mui/icons-material/Tv";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function LabelBottomNavigation() {
@@ -14,13 +14,6 @@ export default function LabelBottomNavigation() {
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
-
-	useEffect(() => {
-		if (value === "trending") navigate("/");
-		if (value === "movies") navigate("/movies");
-		if (value === "series") navigate("/series");
-		if (value === "search") navigate("/search");
-	}, [navigate, value]);
 
 	return (
 		<BottomNavigation
@@ -42,24 +35,28 @@ export default function LabelBottomNavigation() {
 				label="Trending"
 				value="trending"
 				icon={<WhatshotIcon />}
+				onClick={() => navigate("/")}
 			/>
 			<BottomNavigationAction
 				style={{ color: "white" }}
 				label="Movies"
 				value="movies"
 				icon={<MovieIcon />}
+				onClick={() => navigate("/movies")}
 			/>
 			<BottomNavigationAction
 				style={{ color: "white" }}
 				label="TV Shows"
 				value="series"
 				icon={<TvIcon />}
+				onClick={() => navigate("/series")}
 			/>
 			<BottomNavigationAction
 				style={{ color: "white" }}
 				label="Search"
 				value="search"
 				icon={<SearchIcon />}
+				onClick={() => navigate("/search")}
 			/>
 		</BottomNavigation>
 	);

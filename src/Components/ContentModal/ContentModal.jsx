@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
 	img_500,
 	unavailable,
@@ -27,6 +28,7 @@ const style = {
 };
 
 export default function ContentModal({ children, media_type, id }) {
+	const navigate = useNavigate();
 	const [content, setContent] = useState();
 	const [video, setVideo] = useState();
 	const [open, setOpen] = useState(false);
@@ -42,19 +44,13 @@ export default function ContentModal({ children, media_type, id }) {
 		// console.log(data);
 	};
 
-	const fetchVideo = async () => {
-		const { data } = await axios.get(
-			`https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-		);
-
-		setVideo(data.results[0]?.key);
-	};
-
 	useEffect(() => {
 		fetchData();
-		fetchVideo();
+		if (video !== "") {
+			navigate(video);
+		}
 		// eslint-disable-next-line
-	}, []);
+	}, [video, navigate]);
 
 	return (
 		<div>
@@ -132,8 +128,15 @@ export default function ContentModal({ children, media_type, id }) {
 											variant="contained"
 											startIcon={<PlayArrowIcon />}
 											color="secondary"
-											target="__blank"
-											href={`https://www.youtube.com/watch?v=${video}`}
+											target="__self"
+											onClick={() => {
+												setVideo(
+													`/video?m=${media_type}&i=${id}&t=${
+														content.name ||
+														content.title
+													}`
+												);
+											}}
 										>
 											Watch Now
 										</Button>
