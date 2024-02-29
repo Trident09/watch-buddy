@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Loader from "./Components/Loader/Loader";
 import MainNav from "./Components/MainNav/MainNav";
+import Footer from "./Footer/Footer";
 
 const Layout = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ const Layout = () => {
 						<Outlet />
 					</Container>
 				</main>
+				<Footer />
 			</div>
 			<MainNav />
 		</div>
