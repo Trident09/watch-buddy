@@ -20,6 +20,7 @@ const VideoPage = () => {
 	const [overview, setOverview] = useState("");
 	const [globalOverview, setGlobalOverview] = useState("");
 	const [episodesCount, setEpisodesCount] = useState(1);
+	const [episodeData, setEpisodeData] = useState({});
 	const [videoTV, setVideoTV] = useState(
 		`https://vidsrc.xyz/embed/tv?tmdb=${id}&season=1&episode=1`
 	);
@@ -55,7 +56,16 @@ const VideoPage = () => {
 			setSeasonData(episodeCountMap);
 			setOverview(validSeasons[0].overview);
 			setEpisodesCount(validSeasons[0].episode_count);
+			fetchEpisodeData();
 		}
+	};
+
+	const fetchEpisodeData = async () => {
+		const { data } = await axios.get(
+			`https://api.themoviedb.org/3/tv/${id}/season/${selectedSeason}/episode/${selectedEpisode}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+		);
+		setEpisodeData(data);
+		// console.log(data);
 	};
 
 	const fetchVideo = async () => {
@@ -84,14 +94,13 @@ const VideoPage = () => {
 					<span className="pagetitle uppercase flex justify-center text-[4vw] text-[white] p-1 rounded-[50px]">
 						Movie : {title}
 					</span>
-					<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem]">
+					<div className="flex justify-start px-0 py-0.5 pb-[10px] font-thin text-[0.8rem]">
 						<p>{globalOverview}</p>
 					</div>
 					<div className="w-full aspect-video pb-12">
 						<iframe
 							src={videoMovie}
 							style={{ width: "100%", aspectRatio: "16/9" }}
-							frameBorder="0"
 							referrerPolicy="origin"
 							allowFullScreen
 							title="Embedded Video for Movies"
@@ -118,6 +127,7 @@ const VideoPage = () => {
 			console.log(
 				`TMDB Id: ${id}, Season: ${selectedSeason}, Episode: ${selectedEpisode}`
 			);
+			fetchEpisodeData();
 			fetchVideo();
 		};
 
@@ -130,7 +140,7 @@ const VideoPage = () => {
 					<span className="pagetitle uppercase flex justify-center text-[4vw] text-[white] p-1 rounded-[50px]">
 						TV Series : {title}
 					</span>
-					<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem]">
+					<div className="flex justify-start px-0 py-0.5 pb-[10px] font-thin text-[0.8rem]">
 						<p>{globalOverview}</p>
 					</div>
 				</div>
@@ -186,18 +196,25 @@ const VideoPage = () => {
 						Go
 					</Button>
 				</div>
+				{overview && (
+					<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem] mb-12">
+						<p>{`Season Overview: ${overview}`}</p>
+					</div>
+				)}
+				<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[1.5rem]">
+					<h2>{episodeData.name}</h2>
+				</div>
+				<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem] mb-12">
+					<p>{episodeData.overview}</p>
+				</div>
 				<div className="w-full aspect-video pb-12">
 					<iframe
 						src={videoTV}
 						style={{ width: "100%", aspectRatio: "16/9" }}
-						frameBorder="0"
 						referrerPolicy="origin"
 						allowFullScreen
 						title="Embedded Video for TV Series"
 					></iframe>
-				</div>
-				<div className="flex justify-start px-0 py-0.5 pb-[3px] font-thin text-[0.8rem] mb-12">
-					<p>{overview}</p>
 				</div>
 			</>
 		);
