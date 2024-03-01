@@ -17,7 +17,7 @@ const Gallery = ({ id, media_type }) => {
 				}
 				alt={c?.name}
 				onDragStart={handleDragStart}
-				className="rounded-lg shadow-md mb-[5px]"
+				className="rounded-lg shadow-md mb-[5px] max-w-[100px]"
 			/>
 			<b className="carouselItem__txt text-xs">{c?.name}</b>
 		</div>
@@ -55,7 +55,7 @@ const Gallery = ({ id, media_type }) => {
 			disableButtonsControls
 			responsive={responsive}
 			items={items}
-			autoPlay
+			autoPlay={items.length >= 3}
 		/>
 	);
 };
