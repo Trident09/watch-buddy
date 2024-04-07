@@ -5,6 +5,7 @@ import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Loader from "./Components/Loader/Loader";
 import MainNav from "./Components/MainNav/MainNav";
+import NameBlock from "./Components/NameBlock/NameBlock";
 
 const Layout = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +29,9 @@ const Layout = () => {
 					</Container>
 				</main>
 				<Footer />
+				<div className="pb-10 w-full flex justify-center items-center">
+					<NameBlock />
+				</div>
 			</div>
 			<MainNav />
 		</div>
